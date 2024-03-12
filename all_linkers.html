@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Linkers</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a href="/" class="go-back-home-btn">Go Back Home</a> <!-- Go Back Home button -->
+
+<div class="linkers-container">
+    <h1>All Linkers</h1>
+    <div id="profiles-list">
+        <!-- Profiles will be added here by JavaScript -->
+    </div>
+</div>
+
+<script>
+    // Fetch the profiles from the server
+    fetch('/all_linkers')
+        .then(response => response.json())
+        .then(profiles => {
+            const profilesList = document.getElementById('profiles-list');
+
+            // Clear the list
+            profilesList.innerHTML = '';
+
+            // Add each profile to the list
+            profiles.forEach(profile => {
+                const profileDiv = document.createElement('div');
+                profileDiv.classList.add('profile');
+
+                const nameElement = document.createElement('h2');
+                nameElement.textContent = profile.fullName;
+
+                const roleElement = document.createElement('p');
+                roleElement.textContent = `Role: ${profile.role}`;
+
+                profileDiv.appendChild(nameElement);
+                profileDiv.appendChild(roleElement);
+
+                profilesList.appendChild(profileDiv);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching profiles:', error);
+        });
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 20px;
+}
+
+input, select, textarea {
+    width: 100%;    
+    padding: 10px;
+    margin-top: 5px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #06b300;
+}
+
+.landing-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Updated styles for button rows */
+.button-row {
+    display: flex;
+    justify-content: center; /* Center buttons horizontally */
+    flex-wrap: wrap; /* Allow buttons to wrap to next line on small screens */
+    margin-bottom: 10px; /* Space between button rows */
+}
+
+/* Apply uniform styling to all buttons */
+.btn {
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #35cb3a;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 5px #dedede;
+    margin: 5px; /* Add some space between buttons */
+}
+
+.btn:hover {
+    background-color: #37d7df;
+}
+
+.btn:active {
+    background-color: #7b49c7;
+    box-shadow: 0 3px #dedede;
+    transform: translateY(4px);
+}
+
+/* Responsive design: stack buttons on smaller screens */
+@media (max-width: 600px) {
+    .button-row {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+        margin: 5px 0; /* Adjust margins for vertical stacking */
+    }
+}
+
+/* Style adjustments for the go-back-home-btn */
+.go-back-home-btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 15px;
+    color: white;
+    background-color: #007bff; 
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.go-back-home-btn:hover {
+    background-color: #06b300; 
+    color: #fff;
+    text-decoration: none;
+}
+
+.profile {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+
+

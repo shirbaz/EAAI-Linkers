@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a href="/" class="go-back-home-btn">Go Back Home</a>
+
+<form id="projectForm" action="/create_project" method="post">
+    <label for="projectName">Project Name:</label>
+    <input type="text" id="projectName" name="projectName" required>
+    
+    <label for="projectDescription">Project Description:</label>
+    <textarea id="projectDescription" name="projectDescription" required></textarea>
+    
+    <label for="organisation">Organisation:</label>
+    <select id="organisation" name="organisation" required>
+        <option value="">Select One...</option>
+        <option value="university">University</option>
+        <option value="business">Business</option>
+    </select>
+    
+    <!-- University Specific Fields -->
+    <div id="universityFields" style="display: none;">
+        <label for="universityName">Select University:</label>
+        <select id="universityName" name="universityName">
+            <option value="VU University">VU University</option>
+            <option value="UVA">UVA</option>
+            <option value="Erasmus">Erasmus</option>
+            <option value="other">Other</option>
+        </select>
+        
+        <label for="courseRelated">Related to Course:</label>
+        <select id="courseRelated" name="courseRelated">
+            <option value="EAAI">EAAI</option>
+            <option value="Calculus">Calculus</option>
+            <option value="Economics">Economics</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
+    
+    <!-- Business Specific Field -->
+    <div id="businessFields" style="display: none;">
+        <label for="businessName">Enter the name of the business:</label>
+        <input type="text" id="businessName" name="businessName">
+    </div>
+    
+    <label for="projectCoordinator">Project Coordinator:</label>
+    <input type="text" id="projectCoordinator" name="projectCoordinator" required>
+    
+    <button type="submit">Create Project</button>
+</form>
+
+<script>
+document.getElementById('organisation').addEventListener('change', function() {
+    var value = this.value;
+    var universityFields = document.getElementById('universityFields');
+    var businessFields = document.getElementById('businessFields');
+    universityFields.style.display = 'none';
+    businessFields.style.display = 'none';
+    
+    if (value === 'university') {
+        universityFields.style.display = 'block';
+    } else if (value === 'business') {
+        businessFields.style.display = 'block';
+    }
+});
+</script>
+
+</body>
+</html>
